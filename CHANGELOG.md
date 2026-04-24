@@ -3,7 +3,17 @@
 All notable changes to the `cryptohopper` Python package are documented in this file.
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## 0.3.0a1 — Unreleased
+## 0.4.0a1 — Unreleased
+
+Adds four more API domains: `social`, `tournaments`, `webhooks`, `app`. Final A-wave — all 14 remaining public domains now covered.
+
+### Added
+- **`social`** (27 methods) — profiles, feed, trends, search, notifications, conversations/messages, posts, comments, media, follows, likes/reposts, moderation.
+- **`tournaments`** (11 methods) — `list`, `active`, `get`, `search`, `trades`, `stats`, `activity`, `leaderboard`, `tournament_leaderboard`, `join`, `leave`.
+- **`webhooks`** (2 methods) — developer webhook registration (maps to `/api/webhook_*`).
+- **`app`** (2 methods) — mobile app store `receipt` + `in_app_purchase`.
+
+## 0.3.0a1 — 2026-04-24
 
 Adds four more API domains: `ai`, `platform`, `chart`, `subscription`.
 

@@ -25,6 +25,7 @@ HttpMethod = Literal["GET", "POST", "PATCH", "DELETE", "PUT"]
 
 if TYPE_CHECKING:
     from .resources.ai import AI
+    from .resources.app import App
     from .resources.arbitrage import Arbitrage
     from .resources.backtest import Backtests
     from .resources.chart import Chart
@@ -34,10 +35,13 @@ if TYPE_CHECKING:
     from .resources.marketmaker import MarketMaker
     from .resources.platform import Platform
     from .resources.signals import Signals
+    from .resources.social import Social
     from .resources.strategy import Strategies
     from .resources.subscription import Subscription
     from .resources.template import Templates
+    from .resources.tournaments import Tournaments
     from .resources.user import User
+    from .resources.webhooks import Webhooks
 
 
 class CryptohopperClient:
@@ -78,6 +82,10 @@ class CryptohopperClient:
     platform: Platform
     chart: Chart
     subscription: Subscription
+    social: Social
+    tournaments: Tournaments
+    webhooks: Webhooks
+    app: App
 
     def __init__(
         self,
@@ -103,6 +111,7 @@ class CryptohopperClient:
 
         # Import here to avoid a circular at module import time.
         from .resources.ai import AI
+        from .resources.app import App
         from .resources.arbitrage import Arbitrage
         from .resources.backtest import Backtests
         from .resources.chart import Chart
@@ -112,10 +121,13 @@ class CryptohopperClient:
         from .resources.marketmaker import MarketMaker
         from .resources.platform import Platform
         from .resources.signals import Signals
+        from .resources.social import Social
         from .resources.strategy import Strategies
         from .resources.subscription import Subscription
         from .resources.template import Templates
+        from .resources.tournaments import Tournaments
         from .resources.user import User
+        from .resources.webhooks import Webhooks
 
         self.user = User(self)
         self.hoppers = Hoppers(self)
@@ -131,6 +143,10 @@ class CryptohopperClient:
         self.platform = Platform(self)
         self.chart = Chart(self)
         self.subscription = Subscription(self)
+        self.social = Social(self)
+        self.tournaments = Tournaments(self)
+        self.webhooks = Webhooks(self)
+        self.app = App(self)
 
     def __enter__(self) -> CryptohopperClient:
         return self
