@@ -24,11 +24,15 @@ DEFAULT_MAX_RETRIES = 3
 HttpMethod = Literal["GET", "POST", "PATCH", "DELETE", "PUT"]
 
 if TYPE_CHECKING:
+    from .resources.arbitrage import Arbitrage
     from .resources.backtest import Backtests
     from .resources.exchange import Exchange
     from .resources.hoppers import Hoppers
     from .resources.market import Market
+    from .resources.marketmaker import MarketMaker
+    from .resources.signals import Signals
     from .resources.strategy import Strategies
+    from .resources.template import Templates
     from .resources.user import User
 
 
@@ -62,6 +66,10 @@ class CryptohopperClient:
     backtest: Backtests
     market: Market
     user: User
+    signals: Signals
+    arbitrage: Arbitrage
+    marketmaker: MarketMaker
+    template: Templates
 
     def __init__(
         self,
@@ -86,11 +94,15 @@ class CryptohopperClient:
         self._owns_http = http_client is None
 
         # Import here to avoid a circular at module import time.
+        from .resources.arbitrage import Arbitrage
         from .resources.backtest import Backtests
         from .resources.exchange import Exchange
         from .resources.hoppers import Hoppers
         from .resources.market import Market
+        from .resources.marketmaker import MarketMaker
+        from .resources.signals import Signals
         from .resources.strategy import Strategies
+        from .resources.template import Templates
         from .resources.user import User
 
         self.user = User(self)
@@ -99,6 +111,10 @@ class CryptohopperClient:
         self.strategy = Strategies(self)
         self.backtest = Backtests(self)
         self.market = Market(self)
+        self.signals = Signals(self)
+        self.arbitrage = Arbitrage(self)
+        self.marketmaker = MarketMaker(self)
+        self.template = Templates(self)
 
     def __enter__(self) -> CryptohopperClient:
         return self
