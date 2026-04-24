@@ -1,8 +1,14 @@
 # cryptohopper
 
+[![PyPI](https://img.shields.io/pypi/v/cryptohopper?logo=pypi&logoColor=white&include_prereleases)](https://pypi.org/project/cryptohopper/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/cryptohopper?logo=pypi&logoColor=white&label=downloads)](https://pypi.org/project/cryptohopper/)
+[![Python versions](https://img.shields.io/pypi/pyversions/cryptohopper?logo=python&logoColor=white)](https://pypi.org/project/cryptohopper/)
+[![CI](https://github.com/cryptohopper/cryptohopper-python-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/cryptohopper/cryptohopper-python-sdk/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/pypi/l/cryptohopper?color=blue)](LICENSE)
+
 Official Python SDK for the [Cryptohopper](https://www.cryptohopper.com) API.
 
-> **Status: 0.1.0a1** — early access. Covers 6 core domains: `user`, `hoppers`, `exchange`, `strategy`, `backtest`, `market`.
+> **Status: 0.4.0a1** — full coverage of all 18 public API domains: `user`, `hoppers`, `exchange`, `strategy`, `backtest`, `market`, `signals`, `arbitrage`, `marketmaker`, `template`, `ai`, `platform`, `chart`, `subscription`, `social`, `tournaments`, `webhooks`, `app`.
 
 ## Install
 
