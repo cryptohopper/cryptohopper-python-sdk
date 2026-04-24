@@ -3,7 +3,17 @@
 All notable changes to the `cryptohopper` Python package are documented in this file.
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## 0.2.0a1 — Unreleased
+## 0.3.0a1 — Unreleased
+
+Adds four more API domains: `ai`, `platform`, `chart`, `subscription`.
+
+### Added
+- **`ai`** — `list`, `get`, `available_models`, `get_credits`, `credit_invoices`, `credit_transactions`, `buy_credits`, `llm_analyze_options`, `llm_analyze`, `llm_analyze_results`, `llm_results`.
+- **`platform`** — `latest_blog`, `documentation`, `promo_bar`, `search_documentation`, `countries`, `country_allowlist`, `ip_country`, `languages`, `bot_types` (all public).
+- **`chart`** — `list`, `get`, `save`, `delete`, `share_save`, `share_get`.
+- **`subscription`** — `hopper`, `get`, `plans`, `remap`, `assign`, `get_credits`, `order_sub`, `stop_subscription`.
+
+## 0.2.0a1 — 2026-04-24
 
 Adds four more API domains: `signals`, `arbitrage`, `marketmaker`, `template`.
 

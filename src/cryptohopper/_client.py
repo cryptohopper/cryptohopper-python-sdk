@@ -24,14 +24,18 @@ DEFAULT_MAX_RETRIES = 3
 HttpMethod = Literal["GET", "POST", "PATCH", "DELETE", "PUT"]
 
 if TYPE_CHECKING:
+    from .resources.ai import AI
     from .resources.arbitrage import Arbitrage
     from .resources.backtest import Backtests
+    from .resources.chart import Chart
     from .resources.exchange import Exchange
     from .resources.hoppers import Hoppers
     from .resources.market import Market
     from .resources.marketmaker import MarketMaker
+    from .resources.platform import Platform
     from .resources.signals import Signals
     from .resources.strategy import Strategies
+    from .resources.subscription import Subscription
     from .resources.template import Templates
     from .resources.user import User
 
@@ -70,6 +74,10 @@ class CryptohopperClient:
     arbitrage: Arbitrage
     marketmaker: MarketMaker
     template: Templates
+    ai: AI
+    platform: Platform
+    chart: Chart
+    subscription: Subscription
 
     def __init__(
         self,
@@ -94,14 +102,18 @@ class CryptohopperClient:
         self._owns_http = http_client is None
 
         # Import here to avoid a circular at module import time.
+        from .resources.ai import AI
         from .resources.arbitrage import Arbitrage
         from .resources.backtest import Backtests
+        from .resources.chart import Chart
         from .resources.exchange import Exchange
         from .resources.hoppers import Hoppers
         from .resources.market import Market
         from .resources.marketmaker import MarketMaker
+        from .resources.platform import Platform
         from .resources.signals import Signals
         from .resources.strategy import Strategies
+        from .resources.subscription import Subscription
         from .resources.template import Templates
         from .resources.user import User
 
@@ -115,6 +127,10 @@ class CryptohopperClient:
         self.arbitrage = Arbitrage(self)
         self.marketmaker = MarketMaker(self)
         self.template = Templates(self)
+        self.ai = AI(self)
+        self.platform = Platform(self)
+        self.chart = Chart(self)
+        self.subscription = Subscription(self)
 
     def __enter__(self) -> CryptohopperClient:
         return self
