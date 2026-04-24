@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cryptohopper"
+version = "0.1.0a1"
+description = "Official Python SDK for the Cryptohopper API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Cryptohopper", email = "info@cryptohopper.com" }]
+keywords = ["cryptohopper", "sdk", "trading", "crypto", "bot", "api-client"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial :: Investment",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["httpx>=0.27,<0.29"]
+
+[project.urls]
+Homepage = "https://www.cryptohopper.com"
+Documentation = "https://api.cryptohopper.com/v1/docs"
+Repository = "https://github.com/cryptohopper/cryptohopper-python-sdk"
+Issues = "https://github.com/cryptohopper/cryptohopper-python-sdk/issues"
+Changelog = "https://github.com/cryptohopper/cryptohopper-python-sdk/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-httpx>=0.30",
+  "ruff>=0.6",
+  "mypy>=1.11",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cryptohopper"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/cryptohopper", "tests", "README.md", "LICENSE", "CHANGELOG.md", "pyproject.toml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
