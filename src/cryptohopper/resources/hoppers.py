@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from .._client import CryptohopperClient
 
 HopperId = int | str
+PositionId = int | str
 
 
 class Hoppers:
@@ -49,7 +50,7 @@ class Hoppers:
             "GET", "/hopper/positions", params={"hopper_id": hopper_id}
         )
 
-    def position(self, hopper_id: HopperId, position_id: HopperId) -> dict[str, Any]:
+    def position(self, hopper_id: HopperId, position_id: PositionId) -> dict[str, Any]:
         """Fetch a single position. Requires ``read``."""
         return self._client._request(
             "GET",

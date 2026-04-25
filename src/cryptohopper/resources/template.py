@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from .._client import CryptohopperClient
 
 TemplateId = int | str
+HopperId = int | str
 
 
 class Templates:
@@ -44,7 +45,7 @@ class Templates:
         )
 
     def load(
-        self, template_id: TemplateId, hopper_id: TemplateId
+        self, template_id: TemplateId, hopper_id: HopperId
     ) -> dict[str, Any]:
         """Apply a template to a hopper. Requires ``manage``."""
         return self._client._request(
