@@ -201,7 +201,10 @@ class CryptohopperClient:
     ) -> Any:
         url = f"{self.base_url}{path if path.startswith('/') else '/' + path}"
         headers = {
-            "Authorization": f"Bearer {self._api_key}",
+            # Cryptohopper Public API v1 uses `access-token: <token>`, not the
+            # OAuth2-conventional `Authorization: Bearer <token>`. The gateway
+            # in front of the API rejects Bearer with a SigV4 parse error.
+            "access-token": self._api_key,
             "User-Agent": self._user_agent(),
             "Accept": "application/json",
         }

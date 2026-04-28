@@ -21,7 +21,8 @@ def test_bearer_user_agent_and_data_unwrap(
 
     req = httpx_mock.get_request()
     assert req is not None
-    assert req.headers["Authorization"] == "Bearer ch_test"
+    assert req.headers["access-token"] == "ch_test"
+    assert "Authorization" not in req.headers
     assert req.headers["User-Agent"] == f"cryptohopper-sdk-python/{CURRENT_VERSION}"
     assert "x-api-app-key" not in req.headers
 

@@ -71,7 +71,7 @@ ch.hoppers.config_get(42)
 ch.hoppers.config_update(42, {"strategy_id": 99})
 ch.hoppers.panic(42)
 
-# Exchange (public — no auth required)
+# Exchange — market data (still requires a real token; the gateway has no anonymous routes)
 ch.exchange.ticker(exchange="binance", market="BTC/USDT")
 ch.exchange.candles(exchange="binance", market="BTC/USDT", timeframe="1h")
 ch.exchange.orderbook(exchange="binance", market="BTC/USDT")
@@ -92,7 +92,7 @@ ch.backtest.list()
 ch.backtest.cancel(1)
 ch.backtest.limits()
 
-# Marketplace (public — no auth required)
+# Marketplace — same auth requirement as everything else
 ch.market.signals(type="buy")
 ch.market.signal(99)
 ch.market.items(type="strategy")
